@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo du restaurant"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Texte descriptif -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inscrivez-vous pour accéder au restaurant scolaire"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Champ Nom complet -->
+        <EditText
+            android:id="@+id/edtFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom complet"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Champ Matricule -->
+        <EditText
+            android:id="@+id/edtMatricule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Matricule"
+            android:inputType="text"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Champ Mot de passe -->
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mot de passe"
+            android:inputType="textPassword"
+            android:layout_marginBottom="25dp" />
+
+        <!-- Bouton Inscription -->
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="S'inscrire"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+</ScrollView>
