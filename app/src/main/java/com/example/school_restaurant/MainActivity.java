@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialisation des vues
         tvFullName = findViewById(R.id.tvFullName);
         tvMatricule = findViewById(R.id.tvMatricule);
         tvBalance = findViewById(R.id.tvBalance);

@@ -27,7 +27,6 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        // Initialisation des vues
         EditText edtFullName = findViewById(R.id.edtFullName);
         EditText edtMatricule = findViewById(R.id.edtMatricule);
         EditText edtPassword = findViewById(R.id.edtPassword);
