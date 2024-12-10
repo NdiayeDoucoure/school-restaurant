@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("isLoggedIn", true);
                     editor.putString("matricule", matricule);
-                    editor.putFloat("balance", 5000); // Balance simulée
+                    editor.putFloat("balance", 10000);
                     editor.apply();
 
                     // Redirection vers l'écran principal

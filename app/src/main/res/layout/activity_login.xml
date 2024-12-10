@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="24dp"
+    android:background="#F9FAFB">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,20 +14,23 @@
 
         <!-- Logo -->
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/logo"
             android:contentDescription="Logo du restaurant"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="24dp" />
 
         <!-- Texte descriptif -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Connectez-vous pour accéder à votre compte"
-            android:textSize="16sp"
+            android:textSize="18sp"
+            android:textColor="#374151"
+            android:fontFamily="sans-serif-medium"
             android:textAlignment="center"
-            android:layout_marginBottom="30dp" />
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="32dp" />
 
         <!-- Champ Matricule -->
         <EditText
@@ -35,7 +39,9 @@
             android:layout_height="wrap_content"
             android:hint="Matricule"
             android:inputType="text"
-            android:layout_marginBottom="15dp" />
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
 
         <!-- Champ Mot de passe -->
         <EditText
@@ -44,7 +50,9 @@
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
             android:inputType="textPassword"
-            android:layout_marginBottom="25dp" />
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
 
         <!-- Bouton Connexion -->
         <Button
@@ -52,8 +60,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Connexion"
-            android:backgroundTint="#2196F3"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="10dp" />
+            android:backgroundTint="#2196F3"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            android:paddingVertical="12dp"
+            android:elevation="4dp"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 </ScrollView>
