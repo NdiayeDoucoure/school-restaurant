@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Bouton Scan QR Code
         btnScan.setOnClickListener(view -> {
-            String qrData = "{\"matricule\":\"" + matricule + "\",\"deductionAmount\":50}";  // Exemple de déduction de 50 FCFA
+            String qrData = "{\"matricule\":\"" + matricule + "\",\"deductionAmount\":1000}";  // Exemple de déduction de 50 FCFA
             deductBalanceFromQRCode(qrData);
         });
     }
