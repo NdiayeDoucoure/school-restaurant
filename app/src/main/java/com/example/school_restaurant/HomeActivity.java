@@ -16,13 +16,11 @@ public class HomeActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnSignup = findViewById(R.id.btnSignup);
 
-        // Navigation vers l'écran de connexion
         btnLogin.setOnClickListener(view -> {
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
         });
 
-        // Navigation vers l'écran d'inscription
         btnSignup.setOnClickListener(view -> {
             Intent intent = new Intent(HomeActivity.this, SignupActivity.class);
             startActivity(intent);

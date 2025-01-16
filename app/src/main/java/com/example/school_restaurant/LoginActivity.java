@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         EditText edtPassword = findViewById(R.id.edtPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
 
-        // Gestion du clic sur le bouton de connexion
         btnLogin.setOnClickListener(view -> {
             String matricule = edtMatricule.getText().toString().trim();
             String password = edtPassword.getText().toString().trim();
@@ -40,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
             if (matricule.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Veuillez remplir tous les champs.", Toast.LENGTH_SHORT).show();
             } else {
-                // Appel à l'API pour la vérification des informations de connexion
                 performLogin(matricule, password);
             }
         });

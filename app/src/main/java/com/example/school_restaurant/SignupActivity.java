@@ -2,8 +2,10 @@ package com.example.school_restaurant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,33 +32,39 @@ public class SignupActivity extends AppCompatActivity {
         EditText edtFullName = findViewById(R.id.edtFullName);
         EditText edtMatricule = findViewById(R.id.edtMatricule);
         EditText edtPassword = findViewById(R.id.edtPassword);
+        Spinner spinnerRole = findViewById(R.id.spinnerRole);
         Button btnSignup = findViewById(R.id.btnSignup);
 
-        // Gestion du clic sur le bouton d'inscription
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.roles_array,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRole.setAdapter(adapter);
+
         btnSignup.setOnClickListener(view -> {
             String fullName = edtFullName.getText().toString().trim();
             String matricule = edtMatricule.getText().toString().trim();
             String password = edtPassword.getText().toString().trim();
+            String role = spinnerRole.getSelectedItem().toString();
 
-            // Vérifier que tous les champs sont remplis
-            if (fullName.isEmpty() || matricule.isEmpty() || password.isEmpty()) {
+            if (fullName.isEmpty() || matricule.isEmpty() || password.isEmpty() || role.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Veuillez remplir tous les champs.", Toast.LENGTH_SHORT).show();
             } else {
-                // Appel à l'API pour l'inscription
-                performSignup(fullName, matricule, password);
+                performSignup(fullName, matricule, password, role);
             }
         });
     }
 
     // Méthode pour effectuer l'inscription via l'API
-    private void performSignup(String fullName, String matricule, String password) {
+    private void performSignup(String fullName, String matricule, String password, String role) {
         // Création de l'instance Retrofit pour appeler l'API
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:5000") // URL de votre backend (sur un émulateur Android, utilisez 10.0.2.2 pour localhost)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        // Appel à l'API d'inscription
         new Retrofit.Builder().baseUrl("http://10.0.2.2:5000");
 
         // Construction du JSON pour envoyer les données
@@ -65,6 +73,7 @@ public class SignupActivity extends AppCompatActivity {
             json.put("fullName", fullName);
             json.put("matricule", matricule);
             json.put("password", password);
+            json.put("role", role);
         } catch (Exception e) {
             e.printStackTrace();
         }

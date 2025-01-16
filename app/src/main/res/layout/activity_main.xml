@@ -49,15 +49,11 @@
             android:fontFamily="sans-serif-medium"
             android:layout_marginBottom="24dp" />
 
-        <TextView
+        <Button
+            android:id="@+id/btnScan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Scannez ici"
-            android:textSize="16sp"
-            android:textColor="#007BFF"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="8dp"
-            android:textAlignment="center" />
+            android:text="Scan QR Code"/>
 
         <LinearLayout
             android:layout_width="300dp"

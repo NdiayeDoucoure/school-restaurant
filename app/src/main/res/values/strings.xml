@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">school-restaurant</string>
+    <string-array name="roles_array">
+        <item>Etudiant</item>
+        <item>Personnel</item>
+    </string-array>
+
 </resources>
