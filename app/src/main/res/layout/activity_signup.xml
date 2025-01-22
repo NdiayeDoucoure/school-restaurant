@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
@@ -12,53 +12,139 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/logo"
-            android:contentDescription="Logo du restaurant"
-            android:layout_marginBottom="24dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_background_logo"
+                android:elevation="4dp"
+                android:layout_marginEnd="12dp"
+                android:padding="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo1"
+                    android:contentDescription="Logo du restaurant"
+                    android:scaleType="centerInside" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resto IPG-ISTI"
+                android:textSize="24sp"
+                android:textColor="#374151"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center_vertical"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Inscrivez-vous pour accéder au restaurant scolaire"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textColor="#374151"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="sans-serif-light"
             android:textAlignment="center"
-            android:lineSpacingExtra="4dp"
-            android:layout_marginBottom="32dp" />
+            android:lineSpacingExtra="3dp"
+            android:layout_marginBottom="14dp"
+            android:background="#F0F4F8"
+            android:padding="12dp"
+            android:layout_marginTop="7dp"
+            android:elevation="2dp"
+            android:clipToOutline="true" />
 
-        <EditText
-            android:id="@+id/edtFullName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nom complet"
-            android:inputType="textPersonName"
-            android:background="@drawable/rounded_edittext"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp"
+            android:clipToOutline="true">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_user"
+                android:tint="#4CAF50"
+                android:layout_marginEnd="8dp"
+                tools:ignore="UseAppTint" />
+            <EditText
+                android:id="@+id/edtFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Nom complet"
+                android:inputType="textPersonName"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtMatricule"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Matricule"
-            android:inputType="text"
-            android:background="@drawable/rounded_edittext"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp"
+            android:clipToOutline="true">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_id_card"
+                android:tint="#4CAF50"
+                android:layout_marginEnd="8dp"
+                tools:ignore="UseAppTint" />
+            <EditText
+                android:id="@+id/edtMatricule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Matricule"
+                android:inputType="text"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtPassword"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mot de passe"
-            android:inputType="textPassword"
-            android:background="@drawable/rounded_edittext"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:padding="12dp"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="24dp"
+            android:elevation="2dp"
+            android:clipToOutline="true">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_lock"
+                android:tint="#4CAF50"
+                android:layout_marginEnd="8dp"
+                tools:ignore="UseAppTint" />
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:background="@drawable/rounded_edittext"
+                android:padding="12dp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -68,13 +154,22 @@
             android:textColor="#374151"
             android:layout_marginBottom="8dp" />
 
-        <Spinner
-            android:id="@+id/spinnerRole"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
             android:padding="12dp"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="24dp"
+            android:elevation="2dp"
+            android:clipToOutline="true">
+            <Spinner
+                android:id="@+id/spinnerRole"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:padding="0dp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnSignup"
@@ -87,6 +182,7 @@
             android:fontFamily="sans-serif"
             android:paddingVertical="12dp"
             android:elevation="4dp"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
     </LinearLayout>
 </ScrollView>
