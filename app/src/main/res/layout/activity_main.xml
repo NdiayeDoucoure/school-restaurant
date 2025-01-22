@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Logo -->
         <ImageView
             android:layout_width="140dp"
             android:layout_height="140dp"
@@ -21,7 +20,6 @@
             android:contentDescription="Logo"
             android:layout_marginBottom="24dp" />
 
-        <!-- Informations utilisateur avec icônes (centrées) -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,7 +98,6 @@
                 android:fontFamily="sans-serif-medium" />
         </LinearLayout>
 
-        <!-- QR Code -->
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="300dp"
@@ -119,7 +116,6 @@
                 android:contentDescription="Code QR de l'utilisateur" />
         </LinearLayout>
 
-        <!-- Historique des repas -->
         <LinearLayout
             android:id="@+id/historyLayout"
             android:layout_width="match_parent"
@@ -127,7 +123,6 @@
             android:orientation="vertical"
             android:layout_marginBottom="24dp">
 
-            <!-- Titre de l'historique -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +133,6 @@
                 android:gravity="center"
                 android:layout_marginBottom="16dp" />
 
-            <!-- En-têtes -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -179,7 +173,6 @@
                     android:gravity="center" />
             </LinearLayout>
 
-            <!-- RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewHistory"
                 android:layout_width="match_parent"
@@ -187,7 +180,6 @@
                 android:orientation="vertical" />
         </LinearLayout>
 
-        <!-- Bouton de déconnexion -->
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"

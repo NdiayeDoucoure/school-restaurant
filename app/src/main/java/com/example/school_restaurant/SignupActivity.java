@@ -61,13 +61,12 @@ public class SignupActivity extends AppCompatActivity {
     private void performSignup(String fullName, String matricule, String password, String role) {
         // Création de l'instance Retrofit pour appeler l'API
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000") // URL de votre backend (sur un émulateur Android, utilisez 10.0.2.2 pour localhost)
+                .baseUrl("http://10.0.2.2:5000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         new Retrofit.Builder().baseUrl("http://10.0.2.2:5000");
 
-        // Construction du JSON pour envoyer les données
         JSONObject json = new JSONObject();
         try {
             json.put("fullName", fullName);
@@ -86,25 +85,22 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
-                    // Si l'inscription est réussie, affichage d'un message et redirection vers la page de connexion
                     Toast.makeText(SignupActivity.this, "Inscription réussie.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignupActivity.this, LoginActivity.class));
                     finish();
                 } else {
-                    // En cas d'échec
                     Toast.makeText(SignupActivity.this, "Erreur lors de l'inscription.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                // En cas de problème réseau
                 Toast.makeText(SignupActivity.this, "Erreur réseau : " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // Interface Retrofit pour l'appel API, sans fichier séparé
+    // Interface Retrofit pour l'appel API
     public interface ApiService {
         @POST("/api/signup")
         Call<ResponseBody> signup(@Body RequestBody body);

@@ -46,14 +46,11 @@ public class MainActivity extends AppCompatActivity {
         qrCodeImage = findViewById(R.id.qrCodeImage);
         btnLogout = findViewById(R.id.btnLogout);
 
-        // Récupérer le matricule depuis SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
         String matricule = sharedPreferences.getString("matricule", "Matricule");
 
-        // Charger les informations utilisateur
         getUserInfo(matricule);
 
-        // Bouton de déconnexion
         btnLogout.setOnClickListener(view -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
