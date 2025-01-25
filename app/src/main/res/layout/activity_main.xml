@@ -1,196 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
     android:background="#F9FAFB">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-
-        <ImageView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:src="@drawable/logo1"
-            android:contentDescription="Logo"
-            android:layout_marginBottom="24dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_user"
-                android:tint="#4CAF50"
-                android:contentDescription="Icône Nom complet"
-                android:layout_marginEnd="8dp"
-                tools:ignore="UseAppTint" />
-
-            <TextView
-                android:id="@+id/tvFullName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nom complet :"
-                android:textSize="18sp"
-                android:textColor="#374151"
-                android:fontFamily="sans-serif-medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="12dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_id_card"
-                android:tint="#4CAF50"
-                android:contentDescription="Icône Matricule"
-                android:layout_marginEnd="8dp"
-                tools:ignore="UseAppTint" />
-
-            <TextView
-                android:id="@+id/tvMatricule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Matricule :"
-                android:textSize="18sp"
-                android:textColor="#374151"
-                android:fontFamily="sans-serif-medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="24dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_money"
-                android:tint="#4CAF50"
-                android:contentDescription="Icône Solde"
-                android:layout_marginEnd="8dp"
-                tools:ignore="UseAppTint" />
-
-            <TextView
-                android:id="@+id/tvBalance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Solde actuel :"
-                android:textSize="18sp"
-                android:textColor="#374151"
-                android:fontFamily="sans-serif-medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:elevation="8dp"
-            android:layout_marginBottom="24dp"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:backgroundTint="#E0E0E0">
-
-            <ImageView
-                android:id="@+id/qrCodeImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="Code QR de l'utilisateur" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/historyLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="24dp">
+            android:gravity="center">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Historique des repas"
-                android:textSize="20sp"
-                android:textColor="#374151"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/logo1"
+                android:contentDescription="Logo"
+                android:layout_marginBottom="24dp" />
 
+            <!-- Section Nom complet -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="3"
-                android:background="#F0F0F0"
-                android:padding="8dp"
-                android:layout_marginBottom="8dp">
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_user"
+                    android:tint="#4CAF50"
+                    android:contentDescription="Icône Nom complet"
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/tvFullName"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nom du repas"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:fontFamily="sans-serif-medium"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Prix"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:fontFamily="sans-serif-medium"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Date"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:fontFamily="sans-serif-medium"
-                    android:gravity="center" />
+                    android:text="Nom complet :"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#374151"
+                    android:fontFamily="sans-serif-medium" />
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewHistory"
+            <!-- Section Matricule -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_id_card"
+                    android:tint="#4CAF50"
+                    android:contentDescription="Icône Matricule"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tvMatricule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Matricule :"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#374151"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- Section Solde -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_money"
+                    android:tint="#4CAF50"
+                    android:contentDescription="Icône Solde"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tvBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Solde actuel :"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#374151"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- QR Code -->
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:padding="8dp"
+                android:elevation="8dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#FFFFFF">
+
+                <ImageView
+                    android:id="@+id/qrCodeImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Code QR de l'utilisateur" />
+            </LinearLayout>
+
+            <!-- Historique des repas -->
+            <LinearLayout
+                android:id="@+id/historyLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Se déconnecter"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/button_background"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif"
-            android:paddingVertical="12dp"
-            android:elevation="4dp"
-            android:layout_marginTop="16dp" />
-    </LinearLayout>
-</ScrollView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Historique des repas"
+                    android:textSize="20sp"
+                    android:textColor="#374151"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:background="#F0F0F0"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nom du repas"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prix"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Date"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- Bouton Déconnexion -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Se déconnecter"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_background"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:paddingVertical="12dp"
+                android:elevation="4dp"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

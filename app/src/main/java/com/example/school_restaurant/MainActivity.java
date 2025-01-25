@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.zxing.BarcodeFormat;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
@@ -31,6 +32,7 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public class MainActivity extends AppCompatActivity {
+    private SwipeRefreshLayout swipeRefreshLayout;
     private TextView tvFullName, tvMatricule, tvBalance, tvHistory;
     private ImageView qrCodeImage;
     private Button btnLogout;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         tvFullName = findViewById(R.id.tvFullName);
         tvMatricule = findViewById(R.id.tvMatricule);
         tvBalance = findViewById(R.id.tvBalance);
@@ -50,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
         String matricule = sharedPreferences.getString("matricule", "Matricule");
 
         getUserInfo(matricule);
+
+        // Rafraîchir au scrool down
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            getUserInfo(matricule);
+            swipeRefreshLayout.setRefreshing(false);
+        });
 
         btnLogout.setOnClickListener(view -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -138,9 +147,17 @@ public class MainActivity extends AppCompatActivity {
 
                         // Générer le QR code
                         if (matricule != null && !matricule.isEmpty()) {
+                            // Créez un objet JSON avec le matricule
+                            JSONObject jsonObject = new JSONObject();
+                            jsonObject.put("matricule", matricule);
+
+                            // Convertir l'objet JSON en chaîne de caractères
+                            String jsonString = jsonObject.toString();
+
+                            // Utilisez BarcodeEncoder pour générer un QR code contenant le JSON
                             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                             qrCodeImage.setImageBitmap(
-                                    barcodeEncoder.encodeBitmap(matricule, BarcodeFormat.QR_CODE, 400, 400)
+                                    barcodeEncoder.encodeBitmap(jsonString, BarcodeFormat.QR_CODE, 400, 400)
                             );
                         } else {
                             Toast.makeText(MainActivity.this, "Matricule invalide", Toast.LENGTH_SHORT).show();

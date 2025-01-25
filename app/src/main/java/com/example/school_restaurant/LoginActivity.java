@@ -69,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
-                    // Sauvegarde des informations utilisateur dans SharedPreferences
                     SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("isLoggedIn", true);
@@ -77,25 +76,22 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putFloat("balance", 10000);
                     editor.apply();
 
-                    // Redirection vers l'écran principal
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    // En cas de connexion échouée
                     Toast.makeText(LoginActivity.this, "Identifiants incorrects.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                // En cas de problème réseau
                 Toast.makeText(LoginActivity.this, "Erreur réseau : " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // Interface Retrofit pour l'appel API, sans fichier séparé
+    // Interface Retrofit pour l'appel API
     public interface ApiService {
         @POST("/api/login")
         Call<ResponseBody> login(@Body RequestBody body);
